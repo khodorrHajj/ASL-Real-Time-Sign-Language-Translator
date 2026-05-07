@@ -130,6 +130,11 @@ Access the app at **http://localhost:3000**
 *   **Processing:** 30-frame sliding window sequences.
 *   **Normalization:** Translation and scale-invariant preprocessing to ensure user-agnostic performance.
 
+## Contributors
+
+* @khodorrhajj
+* @giokhadra
+
 ## License
 
 This project is licensed under the MIT License.
