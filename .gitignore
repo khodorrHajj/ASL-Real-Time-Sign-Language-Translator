@@ -28,13 +28,11 @@ htmlcov/
 models/letter_model/
 models/dynamic_model/
 
-
 models/word_predictor/gpt2/
-models/word_predictor/*/
+models/word_predictor/distilgpt2/
 
-
-data/
-data/processed/label_map.json
+data/dynamic/raw/
+data/processed/landmarks.csv
 
 frontend/node_modules/
 frontend/.cache/
@@ -77,4 +75,4 @@ logs/
 *.bak
 .cache/
 
-*.task
+# *.task  # Keep .task files (MediaPipe models)

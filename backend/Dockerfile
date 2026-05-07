@@ -26,5 +26,5 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Run the FastAPI server
-CMD ["python", "main.py"]
+# Run startup script that downloads GPT-2 if missing, then starts the server
+CMD ["sh", "-c", "if [ ! -d \"/app/models/word_predictor/gpt2\" ] || [ -z \"$(ls -A /app/models/word_predictor/gpt2 2>/dev/null)\" ]; then echo 'Downloading GPT-2 model...'; python /app/scripts/download_hf_model.py; fi; exec python main.py"]

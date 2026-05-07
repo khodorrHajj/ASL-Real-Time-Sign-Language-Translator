@@ -76,11 +76,19 @@ ASL-ML/
 ## Installation
 
 ### Prerequisites
-*   Python 3.10+
-*   Node.js 18+
+*   Docker & Docker Compose
 *   Webcam
 
-### Quick Start
+### Quick Start (Docker - Recommended)
+```bash
+# Clone and run
+git clone https://github.com/YOUR_USERNAME/ASL-ML.git
+cd ASL-ML
+docker-compose up --build
+```
+Access the app at **http://localhost:3000**
+
+### Manual Setup
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/YOUR_USERNAME/ASL-ML.git
@@ -93,16 +101,20 @@ ASL-ML/
     python -m venv venv
     source venv/bin/activate  # or venv\Scripts\activate on Windows
     pip install -r requirements.txt
-    python ../scripts/download_mediapipe_model.py
     ```
 
-3.  **Setup Frontend:**
+3.  **Download Word Prediction Model (GPT-2):**
+    ```bash
+    python ../scripts/download_hf_model.py
+    ```
+
+4.  **Setup Frontend:**
     ```bash
     cd ../frontend
     npm install
     ```
 
-4.  **Run Application:**
+5.  **Run Application:**
     *   **Manual:** Start backend (`python main.py` in `backend/`) and frontend (`npm start` in `frontend/`).
     *   **Docker:** `docker-compose up --build`
 
