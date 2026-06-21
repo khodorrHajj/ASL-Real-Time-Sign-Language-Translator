@@ -16,43 +16,6 @@ ASL-ML is a real-time American Sign Language (ASL) translation system that conve
 *   **Virtual Cursor:** Two-handed gesture control system for UI interaction via pinch-to-grab logic.
 *   **Stabilization Engine:** Multi-frame consistency checks to ensure prediction accuracy.
 
-## System Architecture
-
-```
-                    Webcam Feed
-                        |
-                        v
-              +-----------------+
-              |  React Frontend |
-              +-----------------+
-                        |
-              WebSocket (base64 frames)
-                        |
-                        v
-              +-----------------+
-              | FastAPI Backend |
-              +-----------------+
-                        |
-          +-------------+-------------+
-          |             |             |
-          v             v             v
-    +----------+   +---------+   +----------+
-    | MediaPipe|   | Letter  |   |  Word    |
-    | Hand     |-->| Recognizer|-->| Predictor|
-    | Tracker  |   | (ONNX)  |   | (GPT-2)  |
-    +----------+   +---------+   +----------+
-          |             |
-          v             v
-    +----------+   +---------+
-    | Stabilizer|  | Dynamic   |
-    | (frames)  |  | Recognizer|
-    +----------+   +---------+
-          |             |
-          +------+------+
-                 |
-                 v
-          Response (text, suggestions, video)
-```
 
 ## Tech Stack
 
@@ -75,23 +38,19 @@ ASL-ML/
 
 ## Installation
 
-### Prerequisites
-*   Docker & Docker Compose
-*   Webcam
-
-### Quick Start (Docker - Recommended)
+### Quick Start (Docker)
 ```bash
 # Clone and run
-git clone https://github.com/YOUR_USERNAME/ASL-ML.git
+git clone https://github.com/khodorrHajj/ASL-Real-Time-Sign-Language-Translator.git
 cd ASL-ML
 docker-compose up --build
 ```
-Access the app at **http://localhost:3000**
+
 
 ### Manual Setup
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/ASL-ML.git
+    git clone https://github.com/khodorrHajj/ASL-Real-Time-Sign-Language-Translator.git
     cd ASL-ML
     ```
 
@@ -99,7 +58,7 @@ Access the app at **http://localhost:3000**
     ```bash
     cd backend
     python -m venv venv
-    source venv/bin/activate  # or venv\Scripts\activate on Windows
+    .venv/bin/activate 
     pip install -r requirements.txt
     ```
 
@@ -113,10 +72,6 @@ Access the app at **http://localhost:3000**
     cd ../frontend
     npm install
     ```
-
-5.  **Run Application:**
-    *   **Manual:** Start backend (`python main.py` in `backend/`) and frontend (`npm start` in `frontend/`).
-    *   **Docker:** `docker-compose up --build`
 
 ## Model Implementation
 
